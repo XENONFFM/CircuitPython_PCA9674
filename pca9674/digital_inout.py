@@ -9,6 +9,7 @@
 ====================================================
 
 Digital input/output of the PCA9674.
+Enables the use of the PCA9674 I/O as a digitalio pin object.
 
 * Author(s): Finn Scheller
 """

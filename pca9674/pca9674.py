@@ -45,8 +45,21 @@ _BUFFER = bytearray(1)
 
 
 class PCA9674:
-    OUTPUT = 0
-    INPUT = 1
+    """Supports PCA9674(A) instance on specified I2C bus and optionally
+    at the specified I2C address.
+
+        :param ~I2C i2c: The i2c bus
+        :param int address: The I2C address of the device
+        :param int pin_config: The initial pin configuration, defaults to 0x00 (all pins as outputs)
+
+        Configure each pin as input (0) or output (1). To set all pins as inputs, use 0xFF.
+        The PCA9674(A) has 8 pins, numbered 1-8.
+        The least significant bit (LSB) corresponds to pin 1.
+
+        Example: To set pins 1, 2, 5, 6 as outputs and 3, 4, 7, 8 as inputs,
+        use 0xF0 (in binary: 0b11001100).
+
+    """
 
     def __init__(self, i2c: I2C, address: int = _PCA9674_ADDRESS, pin_config=0x00):
         self.i2c = i2c
